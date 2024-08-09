@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place Order</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .order-container {
+            margin-top: 50px;
+        }
+        img {
+            width: 300px;
+            height: auto;
+        }
+        button {
+            background-color: orange;
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <form action="Order" method="post">
+    <div class="order-container">
+        <h1>Order Confirmation</h1>
+        <h2 id="pizzaName"></h2>
+        <img id="pizzaImage" src="" alt="Pizza Image">
+        <p id="price" name="price"></p>
+        <p id="quantity"></p>
+        <p id="size"></p>
+        <p id="pieces"></p>
+        <p id="totalPrice"></p>
+        <button onclick="confirmOrder()">Confirm Order</button>
+    </div>
+</form>
+    <script>
+        function confirmOrder() {
+            alert('Your order has been placed successfully!');
+            // You can add more actions like clearing localStorage or redirecting to another page
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const pizzaName = localStorage.getItem('pizzaName');
+            const price = parseInt(localStorage.getItem('price'));
+            const imageSrc = localStorage.getItem('imageSrc');
+            const quantity = parseInt(localStorage.getItem('quantity'));
+            const size = localStorage.getItem('size');
+            const pieces = localStorage.getItem('pieces');
+            const total = price * quantity;
+
+            document.getElementById('pizzaName').innerText = pizzaName;
+            document.getElementById('pizzaImage').src = imageSrc;
+            document.getElementById('price').innerText = `Price per Pizza: ₹ ${price}`;
+            document.getElementById('quantity').innerText = `Quantity: ${quantity}`;
+            document.getElementById('size').innerText = `Size: ${size}`;
+            document.getElementById('pieces').innerText = `Pieces: ${pieces}`;
+            document.getElementById('totalPrice').innerText = `Total Price: ₹ ${total}`;
+        });
+    </script>
+</body>
+</html>

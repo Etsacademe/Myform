@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Zone</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .pizza-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
+        }
+        .pizza-card {
+            background-color: white;
+            color: black;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            width: 200px;
+            text-align: center;
+        }
+        .pizza-card img {
+            width: 100%;
+            height: auto;
+        }
+        .pizza-card button {
+            background-color: orange;
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function navigateToProduct(pizzaName, price, imageSrc) {
+            localStorage.setItem('pizzaName', pizzaName);
+            localStorage.setItem('price', price);
+            localStorage.setItem('imageSrc', imageSrc);
+            window.location.href = 'product.html';
+        }
+    </script>
+</head>
+<body>
+    <h1>Menu that Always Makes You Fall in Love</h1>
+    <div class="pizza-container">
+        <div class="pizza-card">
+            <img src="F:\Dharani Project\static\formhouse pizza.jpeg" alt="Formhouse Pizza">
+            <h3>Formhouse Pizza</h3>
+            <p>₹ 229/-</p>
+            <button onclick="navigateToProduct('Formhouse Pizza', 229, 'static\\formhouse pizza.jpeg')">Buy Now</button>
+        </div>
+        <div class="pizza-card">
+            <img src="F:\Dharani Project\static\Chicken-Sousage.jpeg" alt="Chicken Sausage Pizza">
+            <h3>Chicken Sausage Pizza</h3>
+            <p>₹ 189/-</p>
+            <button onclick="navigateToProduct('Chicken Sausage Pizza', 189, 'F:\Dharani Project\static\Chicken-Sousage.jpeg')">Buy Now</button>
+        </div>
+        <div class="pizza-card">
+            <img src="F:\Dharani Project\static\indi tandoori pizza.avif" alt="Indi Tandoori Pizza">
+            <h3>Indi Tandoori Pizza</h3>
+            <p>₹ 249/-</p>
+            <button onclick="navigateToProduct('Indi Tandoori Pizza', 249, 'F:\Dharani Project\static\indi tandoori pizza.avif')">Buy Now</button>
+        </div>
+    </div>
+</body>
+</html>
